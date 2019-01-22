@@ -2,8 +2,10 @@ const express  = require('express');
 const app = express();
 const home = require('./routes/home');
 const courses = require('./routes/courses');
+const logger = require('./middleware/logger');
 
 app.use(express.json());
+app.use(logger);
 app.use('/', home);
 app.use('/api/courses', courses);
 
